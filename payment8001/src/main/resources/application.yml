@@ -3,6 +3,13 @@ server:
   port: 8001
 
 spring:
+  redis:
+    database: 0 # Database index used by the connection factory.
+    host: 49.235.149.47 # Redis server host.
+    password: yly19931015 # Login password of the redis server.
+    port: 6379 # Redis server port.
+    ssl: false # Whether to enable SSL support.
+    timeout: 5000 # Connection timeout.
   cloud:
     zookeeper:
       # 默认localhost:2181
