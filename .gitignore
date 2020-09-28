@@ -1,0 +1,8 @@
+# Project exclude paths
+/common/target/
+/payment8001/target/
+# Project exclude paths
+/GateWay9527/target/
+/NacosClient/target/
+/NacosServer9001/target/
+/order80/target/

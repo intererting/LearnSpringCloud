@@ -1,0 +1,33 @@
+server:
+  #8001表示注册到zookeeper服务器的支付服务提供者端口号
+  port: 8001
+
+spring:
+  cloud:
+    zookeeper:
+      # 默认localhost:2181
+      connect-string: localhost:2181
+  application:
+    name: cloud-payment-service
+  datasource:
+    # 当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    # mysql驱动类
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://49.235.149.47:3306/yuliyang?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: yly19931015
+#  zipkin:
+#    base-url: http://localhost:9411
+#  sleuth:
+#    sampler:
+#      # 采样值介于0到1之间,1表示全部采集
+#      probability: 1
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.yly.springcloud.entities
+
+logging:
+  level:
+    com.yly.springcloud.dao: debug
