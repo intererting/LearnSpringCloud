@@ -21,16 +21,15 @@ import java.util.List;
 @Slf4j
 public class OrderZkController {
 
-    public static final String INVOKE_URL = "http://cloud-payment-service";
+    public static final String          INVOKE_URL = "http://cloud-payment-service";
     @Resource
-    private RestTemplate restTemplate;
+    private             RestTemplate    restTemplate;
     @Resource
-    private DiscoveryClient discoveryClient;
+    private             DiscoveryClient discoveryClient;
     @Resource
-    private LoadBalancer loadBalancer;
+    private             LoadBalancer    loadBalancer;
 
     @GetMapping(value = "consumer/get/{id}")
-    @LoadBalanced
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
 //        List<ServiceInstance> instances = discoveryClient.getInstances("cloud-payment-service");
 //        if (instances == null || instances.size() <= 0) {
