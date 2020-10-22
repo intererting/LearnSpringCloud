@@ -1,11 +1,13 @@
 package com.yly.springcloud.controller;
 
+import com.yly.springcloud.beans.Student;
 import com.yly.springcloud.config.ScheduledWork;
 import com.yly.springcloud.entities.CommonResult;
 import com.yly.springcloud.entities.Payment;
 import com.yly.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Delete;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,14 @@ import javax.annotation.Resource;
 @RestController
 @Slf4j
 public class PaymentController {
+
+    private Student student;
+
+    @Autowired
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
     @Resource
     private PaymentService paymentService;
 
@@ -46,6 +56,8 @@ public class PaymentController {
      */
     @GetMapping(value = "payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
+        System.out.println(student.getName());
+        System.out.println(student.getBook().getName());
         try {
             //用于测试feign的超时
             Thread.sleep(1);
